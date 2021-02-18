@@ -1,0 +1,35 @@
+name: 'Comment on PR'
+description: 'Put new or edit existing comment in PR'
+author: jstrzebonski
+inputs:
+  repo_owner:
+    description: 'Repository owner name'
+    required: true
+    default: ''
+  repo_name:
+    description: 'Repository name'
+    required: true
+    default: ''
+  pr_number:
+    description: 'PR number'
+    required: true
+    default: ''
+  commit_sha:
+    description: "Current commit's SHA"
+    required: true
+    default: ''
+  comment_title:
+    description: 'Title of the comment (used also for searching of possibly existing comment)'
+    required: true
+    default: ''
+  comment_content:
+    description: 'Content of the comment'
+    required: true
+    default: ''
+  github_token:
+    description: 'GITHUB_TOKEN'
+    required: true
+    default: ''
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
