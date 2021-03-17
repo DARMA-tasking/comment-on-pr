@@ -8,7 +8,6 @@ interface ActionConfig {
   owner: string
   repo: string
   issue_number: number
-  commitSha: string
   commentTitle: string
   commentContent: string
 }
@@ -34,7 +33,6 @@ function getActionConfiguration(): ActionConfig {
     owner: core.getInput('repo_owner'),
     repo: core.getInput('repo_name'),
     issue_number: parseInt(core.getInput('pr_number')),
-    commitSha: core.getInput('commit_sha'),
     commentTitle: core.getInput('comment_title'),
     commentContent: core.getInput('comment_content')
   }
@@ -91,21 +89,9 @@ async function updateComment(
 function getCommentBody(config: ActionConfig): string {
   return `${prepareCommentTitle(config.commentTitle)}
 
-${prepareCommitSha(config.commitSha)}
-
-${prepareCommentContent(config.commentContent)}`
+  ${config.commentContent}`
 }
 
 function prepareCommentTitle(rawCommentTitle: string): string {
   return `**${rawCommentTitle}**`
-}
-
-function prepareCommitSha(rawSha: string): string {
-  return `Build for ${rawSha}`
-}
-
-function prepareCommentContent(rawCommentContent: string): string {
-  return `\`\`\`
-${rawCommentContent}
-\`\`\``
 }

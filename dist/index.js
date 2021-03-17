@@ -5858,7 +5858,6 @@ function getActionConfiguration() {
         owner: core.getInput('repo_owner'),
         repo: core.getInput('repo_name'),
         issue_number: parseInt(core.getInput('pr_number')),
-        commitSha: core.getInput('commit_sha'),
         commentTitle: core.getInput('comment_title'),
         commentContent: core.getInput('comment_content')
     };
@@ -5911,20 +5910,10 @@ function updateComment(octokit, config, commentId) {
 function getCommentBody(config) {
     return `${prepareCommentTitle(config.commentTitle)}
 
-${prepareCommitSha(config.commitSha)}
-
-${prepareCommentContent(config.commentContent)}`;
+  ${config.commentContent}`;
 }
 function prepareCommentTitle(rawCommentTitle) {
     return `**${rawCommentTitle}**`;
-}
-function prepareCommitSha(rawSha) {
-    return `Build for ${rawSha}`;
-}
-function prepareCommentContent(rawCommentContent) {
-    return `\`\`\`
-${rawCommentContent}
-\`\`\``;
 }
 
 
