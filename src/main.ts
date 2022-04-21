@@ -44,7 +44,7 @@ async function findComment(
 ): Promise<number> {
   const {owner, repo, issue_number} = config
   for await (const {data: comments} of octokit.paginate.iterator(
-    octokit.issues.listComments,
+    octokit.rest.issues.listComments,
     {owner, repo, issue_number}
   )) {
     const foundComment = comments.find(comment =>
@@ -64,7 +64,7 @@ async function createComment(
   config: ActionConfig
 ): Promise<void> {
   const {owner, repo, issue_number} = config
-  await octokit.issues.createComment({
+  await octokit.rest.issues.createComment({
     owner,
     repo,
     issue_number,
@@ -78,7 +78,7 @@ async function updateComment(
   commentId: number
 ): Promise<void> {
   const {owner, repo} = config
-  await octokit.issues.updateComment({
+  await octokit.rest.issues.updateComment({
     owner,
     repo,
     comment_id: commentId,

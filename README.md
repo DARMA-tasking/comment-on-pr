@@ -63,7 +63,7 @@ GitHub Actions will run the entry point from the `action.yml`
 
 ```yml
 runs:
-  using: "node12"
+  using: "node16"
   main: "dist/index.js" # <== entry point
 ```
 
