@@ -56,10 +56,13 @@ function prepareCommentTitle() {
   return "## Pipelines results";
 }
 
-async function updateComment(octokit, comment, config) {
+async function updateComment(octokit, config, comment) {
   const { owner, repo, commentSubtitle, commentContent } = config;
-  const body = comment.body;
-  const commentBody = reworkComment(body, commentSubtitle, commentContent);
+  const commentBody = reworkComment(
+    comment.body,
+    commentSubtitle,
+    commentContent
+  );
   await octokit.rest.issues.updateComment({
     owner,
     repo,
