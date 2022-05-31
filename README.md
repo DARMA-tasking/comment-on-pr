@@ -1,6 +1,6 @@
 # comment-on-pr
 
-The DARMA-tasking/comment-on-pr/ is a TypeScript action that can add new one or edit existing comment in given PR thread.
+The DARMA-tasking/comment-on-pr/ is a JavaScript action that can add new one or edit existing comment in a given PR thread.
 
 ## Workflow example
 
@@ -34,23 +34,26 @@ Install the dependencies
 $ npm install
 ```
 
+Run the tests
+
+```bash
+$ npm test
+```
+
 Run lint
 
 ```bash
 $ npm run lint
-
-> comment-on-pr@1.0.0 lint
-> eslint src/**/*.ts
 ```
 
 ## Distribution
 
 Packaging assembles the code into one file that can be checked in to Git, enabling fast and reliable execution and preventing the need to check in node_modules. Packaging the action will create a packaged action in the `dist/` folder.
 
-Run build
+Run prepare
 
 ```bash
-$ npm run build
+$ npm run prepare
 ```
 
 Since the packaged index.js is run from the `dist/` folder, it needs to be added
@@ -67,7 +70,7 @@ runs:
   main: "dist/index.js" # <== entry point
 ```
 
-To do everything at once (lint, reformat code and build package) do
+To do everything at once (lint, prepare and test) do
 
 ```bash
 $ npm run all

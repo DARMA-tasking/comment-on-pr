@@ -4,11 +4,11 @@
   "description": "GitHub Action to put new or edit existing comment in PR thread ",
   "main": "dist/index.js",
   "scripts": {
-    "build": "ncc build src/main.ts --source-map --license licenses.txt",
-    "format": "prettier --write **/*.ts",
-    "format-check": "prettier --check **/*.ts",
-    "lint": "eslint src/**/*.ts",
-    "all": "npm run build && npm run format && npm run lint"
+    "lint": "eslint .",
+    "prepare": "ncc build index.js -o dist --license licenses.txt",
+    "test": "jest",
+    "all": "npm run lint && npm run test && npm run prepare",
+    "start":"node index.js"
   },
   "keywords": [],
   "author": "",
@@ -23,15 +23,11 @@
   "homepage": "https://github.com/DARMA-tasking/comment-on-pr#readme",
   "dependencies": {
     "@actions/core": "^1.6.0",
-    "@actions/github": "^5.0.1",
-    "@vercel/ncc": "^0.33.4"
+    "@actions/github": "^5.0.1"
   },
   "devDependencies": {
-    "@types/node": "^17.0.25",
-    "@typescript-eslint/parser": "^5.20.0",
+    "@vercel/ncc": "^0.33.4",
     "eslint": "^8.13.0",
-    "eslint-plugin-github": "^4.3.6",
-    "prettier": "^2.6.2",
-    "typescript": "^4.6.3"
+    "jest": "^27.3.1"
   }
 }
