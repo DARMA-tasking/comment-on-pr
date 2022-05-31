@@ -7540,10 +7540,10 @@
        */
       function parseURL(urlStr) {
         /*
-         Check whether the URL is absolute or not
-         Scheme: https://tools.ietf.org/html/rfc3986#section-3.1
-         Absolute URL: https://tools.ietf.org/html/rfc3986#section-4.3
-         */
+        Check whether the URL is absolute or not
+        Scheme: https://tools.ietf.org/html/rfc3986#section-3.1
+        Absolute URL: https://tools.ietf.org/html/rfc3986#section-4.3
+        */
         if (/^[a-zA-Z][a-zA-Z\d+\-.]*:/.exec(urlStr)) {
           urlStr = new URL(urlStr).toString();
         }
@@ -11065,11 +11065,10 @@ ${preparePipelineComment(commentSubtitle, commentContent)}`;
         return "## Pipelines results";
       }
 
-      async function updateComment(octokit, comment, config) {
+      async function updateComment(octokit, config, comment) {
         const { owner, repo, commentSubtitle, commentContent } = config;
-        const body = comment.body;
         const commentBody = reworkComment(
-          body,
+          comment.body,
           commentSubtitle,
           commentContent
         );
