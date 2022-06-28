@@ -22,12 +22,12 @@
   },
   "homepage": "https://github.com/DARMA-tasking/comment-on-pr#readme",
   "dependencies": {
-    "@actions/core": "^1.6.0",
-    "@actions/github": "^5.0.1"
+    "@actions/core": "^1.9.0",
+    "@actions/github": "^5.0.3"
   },
   "devDependencies": {
-    "@vercel/ncc": "^0.33.4",
-    "eslint": "^8.13.0",
-    "jest": "^27.3.1"
+    "@vercel/ncc": "^0.34.0",
+    "eslint": "^8.18.0",
+    "jest": "^28.1.1"
   }
 }
